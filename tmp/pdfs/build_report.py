@@ -124,7 +124,19 @@ for r in metrics:
 t=Table(rows,colWidths=[174,53,49,59,53,44,44],repeatRows=1)
 t.setStyle(TableStyle([("BACKGROUND",(0,0),(-1,0),NAVY),("GRID",(0,0),(-1,-1),.35,colors.HexColor("#CFD8E1")),("VALIGN",(0,0),(-1,-1),"MIDDLE"),("ALIGN",(1,1),(-1,-1),"CENTER"),("LEFTPADDING",(0,0),(-1,-1),5),("RIGHTPADDING",(0,0),(-1,-1),5),("TOPPADDING",(0,0),(-1,-1),5),("BOTTOMPADDING",(0,0),(-1,-1),5),("ROWBACKGROUNDS",(0,1),(-1,-1),[colors.white,PALE])]))
 story += [t, Spacer(1,7), metric_chart(), mcc_chart()]
-story += [P("Observations", "H1Custom"), P("Logistic Regression gave the strongest results in this test split: accuracy 0.9825, AUC 0.9954, F1 0.9861, and MCC 0.9623. RBF SVM was also close on several scores. KNN had the highest recall for benign cases (0.9722). Decision Tree and Gaussian Naive Bayes had the lowest MCC scores. These results come from one split, so repeated cross-validation could give a more reliable comparison. I should also check recall for malignant cases, because missing a malignant case matters.")]
+story += [P("Observations", "H1Custom")]
+obs_rows = [
+    [P("ML Model Name", "CellHeader"), P("Observation about model performance", "CellHeader")],
+    [P("Logistic Regression", "CellCustom"), P("It had the strongest overall results: 0.9825 accuracy, 0.9954 AUC, 0.9861 F1, and 0.9623 MCC.", "CellCustom")],
+    [P("Decision Tree", "CellCustom"), P("It reached 0.9298 accuracy and 0.9437 F1. Its MCC was 0.8513, among the lowest scores.", "CellCustom")],
+    [P("kNN", "CellCustom"), P("It achieved 0.9561 accuracy and the highest recall for benign cases (0.9722). Its MCC was 0.9054.", "CellCustom")],
+    [P("Naive Bayes", "CellCustom"), P("Its accuracy was 0.9298 and AUC was 0.9868. Its MCC (0.8492) was the lowest among the models.", "CellCustom")],
+    [P("Random Forest (Ensemble)", "CellCustom"), P("It achieved 0.9474 accuracy and a high AUC of 0.9937. Its MCC was 0.8869.", "CellCustom")],
+    [P("Overall Winner for this dataset?", "CellCustom"), P("Logistic Regression, based on its highest accuracy, AUC, F1, and MCC on this test split.", "CellCustom")],
+]
+obs_table = Table(obs_rows, colWidths=[155, 345], repeatRows=1)
+obs_table.setStyle(TableStyle([("BACKGROUND", (0,0), (-1,0), NAVY), ("GRID", (0,0), (-1,-1), .4, colors.HexColor("#8795A3")), ("VALIGN", (0,0), (-1,-1), "MIDDLE"), ("LEFTPADDING", (0,0), (-1,-1), 7), ("RIGHTPADDING", (0,0), (-1,-1), 7), ("TOPPADDING", (0,0), (-1,-1), 7), ("BOTTOMPADDING", (0,0), (-1,-1), 7), ("ROWBACKGROUNDS", (0,1), (-1,-1), [colors.white, PALE])]))
+story += [obs_table, Spacer(1, 8), P("These results are from one split. Repeated cross-validation could provide a more reliable comparison. The additional RBF SVM had 0.9649 accuracy and 0.9260 MCC; it remains included in the six-model results table.", "SmallCustom")]
 story += [PageBreak(), P("Execution evidence and submission details", "TitleCustom"), P("Execution instructions", "H1Custom"), P("Install dependencies with <font name='Courier'>python -m pip install -r requirements.txt</font>, then run <font name='Courier'>python model/model_comparison.py</font>. The script writes the complete dataset CSV, held-out test_data.csv, model_metrics.csv, and comparison graphs into the project folder. The held-out CSV contains 114 rows from the stratified test split.")]
 story += [P("Dataset source", "H1Custom"), P("UCI Machine Learning Repository: Wisconsin Diagnostic Breast Cancer dataset. The experiment used the canonical dataset bundled with scikit-learn.")]
 story += [P("GitHub Repository Link", "H1Custom"), P("https://github.com/2026ct05170-pixel/ml-assignment2","BodyCustom")]

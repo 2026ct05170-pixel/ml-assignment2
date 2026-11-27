@@ -29,7 +29,16 @@ I evaluated all models on the same held-out test split in the BITS Virtual Lab. 
 ![Matthews correlation comparison](figures/mcc_comparison.svg)
 
 ### Observations
-Logistic Regression had the strongest results in this test split. Its accuracy was 0.9825, AUC was 0.9954, F1 was 0.9861, and MCC was 0.9623. The RBF SVM was next closest on several of these scores. KNN had the highest recall for benign cases (0.9722). Decision Tree and Gaussian Naive Bayes had the lowest MCC scores. These results come from one split, so testing with repeated cross-validation could give a more reliable comparison.
+| ML Model Name | Observation about model performance |
+|---|---|
+| Logistic Regression | It had the strongest overall results: 0.9825 accuracy, 0.9954 AUC, 0.9861 F1, and 0.9623 MCC. |
+| Decision Tree | It reached 0.9298 accuracy and 0.9437 F1. Its MCC was 0.8513, among the lowest scores. |
+| kNN | It achieved 0.9561 accuracy and the highest recall for benign cases (0.9722). Its MCC was 0.9054. |
+| Naive Bayes | Its accuracy was 0.9298 and AUC was 0.9868. Its MCC (0.8492) was the lowest among the models. |
+| Random Forest (Ensemble) | It achieved 0.9474 accuracy and a high AUC of 0.9937. Its MCC was 0.8869. |
+| **Overall Winner for this dataset** | **Logistic Regression**, based on its highest accuracy, AUC, F1, and MCC on this test split. |
+
+These results are from one split. Repeated cross-validation could provide a more reliable comparison. The additional RBF SVM is included in the metrics table above; its accuracy was 0.9649 and MCC was 0.9260.
 
 ## Model configurations and execution
 
