@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="950" height="470" viewBox="0 0 950 470"><rect width="100%" height="100%" fill="white"/><text x="475" y="36" text-anchor="middle" font-family="Arial" font-size="24" font-weight="bold">Matthews Correlation Coefficient by Classifier</text>
+<line x1='300' y1='70' x2='300' y2='410' stroke='#d8dee6'/><text x='300' y='435' text-anchor='middle' font-family='Arial' font-size='13' fill='#475569'>0</text>
+<line x1='416' y1='70' x2='416' y2='410' stroke='#d8dee6'/><text x='416' y='435' text-anchor='middle' font-family='Arial' font-size='13' fill='#475569'>0.2</text>
+<line x1='532' y1='70' x2='532' y2='410' stroke='#d8dee6'/><text x='532' y='435' text-anchor='middle' font-family='Arial' font-size='13' fill='#475569'>0.4</text>
+<line x1='648' y1='70' x2='648' y2='410' stroke='#d8dee6'/><text x='648' y='435' text-anchor='middle' font-family='Arial' font-size='13' fill='#475569'>0.6</text>
+<line x1='764' y1='70' x2='764' y2='410' stroke='#d8dee6'/><text x='764' y='435' text-anchor='middle' font-family='Arial' font-size='13' fill='#475569'>0.8</text>
+<line x1='880' y1='70' x2='880' y2='410' stroke='#d8dee6'/><text x='880' y='435' text-anchor='middle' font-family='Arial' font-size='13' fill='#475569'>1</text>
+<text x='285' y='106' text-anchor='end' font-family='Arial' font-size='13' fill='#334155'>Logistic Regression</text><rect x='300' y='85' width='558.134' height='27' fill='#4776a8'/><text x='866.134' y='104' font-family='Arial' font-size='12' fill='#334155'>0.9623</text>
+<text x='285' y='159' text-anchor='end' font-family='Arial' font-size='13' fill='#334155'>Decision Tree</text><rect x='300' y='138' width='493.754' height='27' fill='#4776a8'/><text x='801.754' y='157' font-family='Arial' font-size='12' fill='#334155'>0.8513</text>
+<text x='285' y='212' text-anchor='end' font-family='Arial' font-size='13' fill='#334155'>K-Nearest Neighbors</text><rect x='300' y='191' width='525.132' height='27' fill='#4776a8'/><text x='833.132' y='210' font-family='Arial' font-size='12' fill='#334155'>0.9054</text>
+<text x='285' y='265' text-anchor='end' font-family='Arial' font-size='13' fill='#334155'>Gaussian Naive Bayes</text><rect x='300' y='244' width='492.536' height='27' fill='#4776a8'/><text x='800.536' y='263' font-family='Arial' font-size='12' fill='#334155'>0.8492</text>
+<text x='285' y='318' text-anchor='end' font-family='Arial' font-size='13' fill='#334155'>Random Forest</text><rect x='300' y='297' width='514.402' height='27' fill='#4776a8'/><text x='822.402' y='316' font-family='Arial' font-size='12' fill='#334155'>0.8869</text>
+<text x='285' y='371' text-anchor='end' font-family='Arial' font-size='13' fill='#334155'>RBF Support Vector Machine (additional)</text><rect x='300' y='350' width='537.08' height='27' fill='#4776a8'/><text x='845.08' y='369' font-family='Arial' font-size='12' fill='#334155'>0.9260</text>
+</svg>
