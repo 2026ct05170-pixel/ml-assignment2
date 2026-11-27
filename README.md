@@ -1,19 +1,19 @@
 # Classification Model Comparison for Breast Cancer Diagnosis
 
 ## Problem statement
-Compare the five required classifiers for predicting whether a breast mass is malignant or benign using the Wisconsin Diagnostic Breast Cancer dataset. The assignment's comparison table says six models, so an RBF Support Vector Machine is included as a clearly labelled additional model.
+This assignment compares classifiers that predict whether a breast mass is malignant or benign. It uses the Wisconsin Diagnostic Breast Cancer dataset. The instructions require five classifiers, while the results table asks for six, so an RBF Support Vector Machine is included as an extra model.
 
 ## Dataset description
-The Wisconsin Diagnostic Breast Cancer dataset contains 569 observations and 30 numeric measurements from digitized fine needle aspirate images. The target is `target`: `0` is malignant and `1` is benign. The dataset has 212 malignant (37.3%) and 357 benign (62.7%) observations. The predictors are continuous numeric features; no categorical encoding is needed. Source: [UCI Machine Learning Repository](https://archive.ics.uci.edu/dataset/17/breast+cancer+wisconsin+diagnostic). The experiment used scikit-learn's bundled copy of this dataset.
+The dataset has 569 cases and 30 numeric measurements taken from digitized fine needle aspirate images. The target column is `target`: `0` means malignant and `1` means benign. It contains 212 malignant cases (37.3%) and 357 benign cases (62.7%). All input features are numeric, so categorical encoding is not needed. The dataset source is the [UCI Machine Learning Repository](https://archive.ics.uci.edu/dataset/17/breast+cancer+wisconsin+diagnostic). This run used the version included with scikit-learn.
 
 ## GitHub Repository Link
 [https://github.com/2026ct05170-pixel/ml-assignment2](https://github.com/2026ct05170-pixel/ml-assignment2)
 
 ## Preprocessing
-The source dataset has no missing values or duplicate rows. The code removes duplicate rows if any occur and uses a median imputer fitted inside each model pipeline. The 80:20 train-test split is stratified and uses `random_state=42`. Scaling is applied inside pipelines for Logistic Regression, KNN, Gaussian Naive Bayes, and SVM; tree models do not require scaling. Preprocessing is fit only on training data. For the listed Precision, Recall, F1, and AUC metrics, benign (label 1) is the positive class. Malignant-class recall should also be considered because false negatives for malignant cases are important.
+There were no missing values or duplicate rows in the data. The code checks for duplicates and includes a median imputer in each model pipeline. I split the data into 80% for training and 20% for testing, keeping the class proportions similar in both parts (`random_state=42`). Logistic Regression, KNN, Gaussian Naive Bayes, and SVM use scaling; the tree models do not. The preprocessing is fitted using training data only. Benign (label 1) is treated as the positive class for Precision, Recall, F1, and AUC. I also need to consider malignant-class recall, since missing a malignant case matters.
 
 ## Models used and results
-All models were evaluated on the same held-out test split in the BITS Virtual Lab. Scores are rounded to four decimal places. The comparisons are shown below.
+I evaluated all models on the same held-out test split in the BITS Virtual Lab. Scores are rounded to four decimal places. The results are below.
 
 | Model | Accuracy | AUC | Precision | Recall | F1 | MCC |
 |---|---:|---:|---:|---:|---:|---:|
@@ -29,7 +29,7 @@ All models were evaluated on the same held-out test split in the BITS Virtual La
 ![Matthews correlation comparison](figures/mcc_comparison.svg)
 
 ### Observations
-Logistic Regression performed best on this fixed split, with the highest accuracy (0.9825), AUC (0.9954), F1 (0.9861), and MCC (0.9623). The RBF SVM was close, with 0.9649 accuracy, 0.9940 AUC, and 0.9260 MCC. KNN had the highest benign-class recall (0.9722) among the tested models. The Decision Tree and Gaussian Naive Bayes had the lowest MCC values (0.8513 and 0.8492). These results compare one stratified split only; repeated cross-validation would provide a more stable estimate of performance.
+Logistic Regression had the strongest results in this test split. Its accuracy was 0.9825, AUC was 0.9954, F1 was 0.9861, and MCC was 0.9623. The RBF SVM was next closest on several of these scores. KNN had the highest recall for benign cases (0.9722). Decision Tree and Gaussian Naive Bayes had the lowest MCC scores. These results come from one split, so testing with repeated cross-validation could give a more reliable comparison.
 
 ## Model configurations and execution
 
